@@ -22,10 +22,16 @@ public class Fazenda {
     
     public void PlantarCultura(Cultura cultura){
         culturas.add(cultura);
+        System.out.println("Cultura plantada: " + cultura.getNome());
     }
     
     public void ColherCultura(Cultura cultura){
-    
+        if (cultura.getDiasDeCrescimento() >= cultura.getTempoDeCrescimento()){
+            Moedas += cultura.Colher();
+            culturas.remove(cultura);
+            System.out.println("Cultura colhida: " + cultura.getNome() + ". Moedas ganhas: " + cultura.getValorDeVenda());
+        }
+            System.out.println("A cultura ainda não está pronta para colher");
     }
     
     public void AdicionalAnimal(Animal animal){
@@ -36,7 +42,20 @@ public class Fazenda {
         if(RacaoDisponivel >= animal.ConsumoDeRacao){
             RacaoDisponivel -= animal.ConsumoDeRacao;
             animal.Alimentar();
-            System.out.println("Animal alimentado");
+            System.out.println("Animal alimentado" + animal.getNome());
         }
+            System.out.println("Ração insuficiente para alimentar o animal");
+    }
+    
+    public void ColetarProducao(Animal animal){
+        if(animal.isAlimentado()){
+            Moedas += animal.ColetarProducao();
+            System.out.println("Producao coletada de " + animal.getNome() + ". Moedas ganhas" + animal.getProducaoDiaria());
+        }
+            System.out.println("Animal não foi alimentado, pois não tem produção");
+    }
+    
+    public int getMoedas(){
+        return Moedas;
     }
 }

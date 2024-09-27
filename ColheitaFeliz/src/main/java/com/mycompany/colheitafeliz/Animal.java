@@ -27,4 +27,20 @@ public class Animal {
         System.out.println("O" + Nome + "não foi alimentado, por isso não produziu");
         return 0;
     }
+    
+    public String getNome() {
+        return Nome;
+    }
+
+    public int getConsumoDeRacao() {
+        return ConsumoDeRacao;
+    }
+
+    public int getProducaoDiaria() {
+        return ProducaoDiaria;
+    }
+
+    public boolean isAlimentado() {
+        return Alimentado;
+    }
 }

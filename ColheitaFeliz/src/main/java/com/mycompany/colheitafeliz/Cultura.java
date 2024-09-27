@@ -27,4 +27,20 @@ public class Cultura {
    public int Colher(){
        return ValorDeVenda;
    }
+   
+   public String getNome(){
+       return Nome;
+   }
+   
+   public int getDiasDeCrescimento() {
+        return DiasDeCrescimento;
+    }
+
+    public int getTempoDeCrescimento() {
+        return TempoDeCrescimento;
+    }
+
+    public int getValorDeVenda() {
+        return ValorDeVenda;
+    }
 }
